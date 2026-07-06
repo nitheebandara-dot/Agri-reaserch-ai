@@ -4,7 +4,8 @@
 st.set_page_config(
     page_title="AI Agriculture Research Engine",
     page_icon="🌱",
-    layout="centered"
+    layout="centered" 
+
 )
 
 # ප්‍රධාන මාතෘකාව සහ බැනරය
@@ -250,7 +251,8 @@ if prompt := st.chat_input("වගාව ගැන අහන්න..."):
     
     with st.chat_message("assistant"):
         st.markdown(response)
-    st.session_state.messages.append({"role": "assistant", "content": response})
+    st.session_state.messages.append({"role": "assistant", "c
+    ontent": response})
     # බොට් එකේ උත්තරේ තීරණය කරන තැන
     user_input = prompt.lower()
     
