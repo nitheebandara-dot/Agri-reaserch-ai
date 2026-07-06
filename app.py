@@ -227,3 +227,28 @@ if st.button("🚀 දත්ත විශ්ලේෂණය කර වාර්�
 
 st.markdown("---")
 st.caption("🌱 Sustainable Agri-Tech Research Prototype v5.0 | Developed for Research Purposes")
+# AI Chatbot සෙක්ෂන් එක
+st.markdown("---")
+st.subheader("🤖 AI කෘෂිකාර්මික උපදේශක")
+
+# Chat history එක පවත්වාගෙන යාමට
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# පැරණි පණිවිඩ පෙන්වීම
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# පරිශීලකයාගෙන් ප්‍රශ්න ඇසීම
+if prompt := st.chat_input("වගාව ගැන අහන්න..."):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    # මෙතන තමයි AI එකේ උත්තරේ එන්නේ
+    response = f"ඔයා ඇහුවේ: '{prompt}' කියලා නේද? ඒ ගැන වැඩි විස්තර මම පසුව කියන්නම්!" 
+    
+    with st.chat_message("assistant"):
+        st.markdown(response)
+    st.session_state.messages.append({"role": "assistant", "content": response})
