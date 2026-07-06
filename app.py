@@ -6,7 +6,7 @@ st.set_page_config(
     page_title="AI Agriculture Research Engine",
     page_icon="🌱",
     layout="centered"
-)
+
 
 # ඊට පස්සේ අනිත් ටික
 st.title("🌱 AI Agriculture Research Engine")
