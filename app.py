@@ -27,8 +27,8 @@ soil_type_mapping = {
     "රතු ලැටරයිට් පස (Red Latosols / තෙත් කලාපීය පස)": 1,
     "වැලි සහිත පස (Sandy Soil / වියළි කලාපීය පස)": 2,
     "මැටි මිශ්‍ර කළු පස (Alluvial / කුඹුරු පස)": 3
-# # Input 4: දිස්ත්‍රික්කය තෝරාගැනීම (District Selection)
-}district_mapping = {
+}# # Input 4: දිස්ත්‍රික්කය තෝරාගැනීම (District Selection)
+district_mapping = {
     "කොළඹ (Colombo)": "Wet Zone",
     "ගම්පහ (Gampaha)": "Wet Zone",
     "කළුතර (Kalutara)": "Wet Zone",
