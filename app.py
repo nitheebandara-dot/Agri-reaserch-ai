@@ -1,17 +1,23 @@
+import streamlit as st
+import random
 
-
-# වෙබ් පිටුවේ ප්‍රධාන සැකසුම් (Page Configuration)
+# මේක තමයි කෝඩ් එකේ අංක 1ටම තියෙන්න ඕනේ
 st.set_page_config(
     page_title="AI Agriculture Research Engine",
     page_icon="🌱",
-    layout="centered" 
-
+    layout="centered"
 )
 
-# ප්‍රධාන මාතෘකාව සහ බැනරය
+# ඊට පස්සේ අනිත් ටික
 st.title("🌱 AI Agriculture Research Engine")
 st.subheader("Agro-Tech Research Engine v5.0")
 st.markdown("---")
+
+ 
+
+)
+
+
 
 # 📋 PART 1: FIELD DATA COLLECTION (පරිශීලක දත්ත ඇතුළත් කිරීම)
 st.header("📋 ක්ෂේත්‍ර දත්ත එකතු කිරීම (Field Data Collection)")
