@@ -27,7 +27,45 @@ soil_type_mapping = {
     "රතු ලැටරයිට් පස (Red Latosols / තෙත් කලාපීය පස)": 1,
     "වැලි සහිත පස (Sandy Soil / වියළි කලාපීය පස)": 2,
     "මැටි මිශ්‍ර කළු පස (Alluvial / කුඹුරු පස)": 3
+# # Input 4: දිස්ත්‍රික්කය තෝරාගැනීම (District Selection)
+district_mapping = {
+    "කොළඹ (Colombo)": "Wet Zone",
+    "ගම්පහ (Gampaha)": "Wet Zone",
+    "කළුතර (Kalutara)": "Wet Zone",
+    "ගාල්ල (Galle)": "Wet Zone",
+    "මාතර (Matara)": "Wet Zone",
+    "රත්නපුරය (Ratnapura)": "Wet Zone",
+    "කෑගල්ල (Kegalle)": "Wet Zone",
+    "මහනුවර (Kandy)": "Upcountry",
+    "නුවරඑළිය (Nuwara Eliya)": "Upcountry",
+    "බදුල්ල (Badulla)": "Upcountry",
+    "මාතලේ (Matale)": "Upcountry",
+    "අනුරාධපුරය (Anuradhapura)": "Dry Zone",
+    "පොළොන්නරුව (Polonnaruwa)": "Dry Zone",
+    "කුරුණෑගල (Kurunegala)": "Dry Zone",
+    "පුත්තලම (Puttalam)": "Dry Zone",
+    "හම්බන්තොට (Hambantota)": "Dry Zone",
+    "මොනරාගල (Monaragala)": "Dry Zone",
+    "අම්පාර (Ampara)": "Dry Zone",
+    "මඩකලපුව (Batticaloa)": "Dry Zone",
+    "ත්‍රිකුණාමලය (Trincomalee)": "Dry Zone",
+    "යාපනය (Jaffna)": "Dry Zone",
+    "කිලිනොච්චිය (Kilinochchi)": "Dry Zone",
+    "මන්නාරම (Mannar)": "Dry Zone",
+    "වවුනියාව (Vavuniya)": "Dry Zone",
+    "මුලතීවු (Mullaitivu)": "Dry Zone"
 }
+
+district_display = st.selectbox("👉 වගා බිම පිහිටි දිස්ත්‍රික්කය තෝරන්න:", list(district_mapping.keys()))
+selected_zone = district_mapping[district_display]
+
+# කලාපය අනුව අගයන් (1, 2, 3) mapping එකට දීම (ඔයාගේ පරණ ලොජික් එක බිඳෙන්නේ නැති වෙන්න)
+zone_mapping = {"Dry Zone": 1, "Wet Zone": 2, "Upcountry": 3}
+zone_choice = zone_mapping[selected_zone]
+
+# පරිශීලකයාට තේරුණු කලාපය visual එකක් විදිහට පෙන්වන්න
+st.info(f"📍 තෝරාගත් දිස්ත්‍රික්කය අනුව දේශගුණික කලාපය: **{selected_zone}**")
+
 soil_type_display = st.selectbox("👉 ඔයාගේ වගා බිමේ පවතින පස් වර්ගය (Soil Type) තෝරන්න:", list(soil_type_mapping.keys()))
 soil_type = soil_type_mapping[soil_type_display]
 
