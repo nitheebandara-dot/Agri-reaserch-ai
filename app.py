@@ -1,14 +1,4 @@
-    # බොට් එකේ උත්තරේ තීරණය කරන තැන
-    user_input = prompt.lower()
-    
-    if "මිරිස්" in user_input or "chilli" in user_input:
-        response = "🌶️ **මිරිස් වගාව සඳහා උපදෙස්:** \n1. හොඳින් හිරු එළිය ලැබෙන ස්ථානයක් තෝරාගන්න. \n2. පසෙහි ජලය බැස යන ගතිය හොඳ විය යුතුයි. \n3. දින 7-10කට වරක් දියර පොහොර යෙදීම සාර්ථක අස්වැන්නකට උපකාරී වේ."
-    elif "හෙලෝ" in user_input or "ආයුබෝවන්" in user_input:
-        response = "ආයුබෝවන්! මම ඔයාගේ කෘෂිකාර්මික සහායකයා. ඔයාට වගාව ගැන මොනවා හරි දැනගන්න ඕනෙද?"
-    else:
-        response = "මම තවමත් ඉගෙන ගන්නවා. මට 'මිරිස් වගාව' වගේ දේවල් ගැන අහන්න, මම උදව් කරන්නම්!"
-import streamlit as st
-import random
+
 
 # වෙබ් පිටුවේ ප්‍රධාන සැකසුම් (Page Configuration)
 st.set_page_config(
@@ -261,3 +251,14 @@ if prompt := st.chat_input("වගාව ගැන අහන්න..."):
     with st.chat_message("assistant"):
         st.markdown(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
+    # බොට් එකේ උත්තරේ තීරණය කරන තැන
+    user_input = prompt.lower()
+    
+    if "මිරිස්" in user_input or "chilli" in user_input:
+        response = "🌶️ **මිරිස් වගාව සඳහා උපදෙස්:** \n1. හොඳින් හිරු එළිය ලැබෙන ස්ථානයක් තෝරාගන්න. \n2. පසෙහි ජලය බැස යන ගතිය හොඳ විය යුතුයි. \n3. දින 7-10කට වරක් දියර පොහොර යෙදීම සාර්ථක අස්වැන්නකට උපකාරී වේ."
+    elif "හෙලෝ" in user_input or "ආයුබෝවන්" in user_input:
+        response = "ආයුබෝවන්! මම ඔයාගේ කෘෂිකාර්මික සහායකයා. ඔයාට වගාව ගැන මොනවා හරි දැනගන්න ඕනෙද?"
+    else:
+        response = "මම තවමත් ඉගෙන ගන්නවා. මට 'මිරිස් වගාව' වගේ දේවල් ගැන අහන්න, මම උදව් කරන්නම්!"
+import streamlit as st
+import random
