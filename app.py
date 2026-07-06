@@ -1,17 +1,18 @@
 import streamlit as st
 import random
 
-# මේක තමයි කෝඩ් එකේ අංක 1ටම තියෙන්න ඕනේ
+# Page Configuration
 st.set_page_config(
     page_title="AI Agriculture Research Engine",
     page_icon="🌱",
     layout="centered"
+)
 
-
-# ඊට පස්සේ අනිත් ටික
+# Header
 st.title("🌱 AI Agriculture Research Engine")
 st.subheader("Agro-Tech Research Engine v5.0")
 st.markdown("---")
+
 
  
 
