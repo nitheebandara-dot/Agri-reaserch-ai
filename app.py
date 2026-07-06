@@ -234,3 +234,28 @@ if st.button("🚀 දත්ත විශ්ලේෂණය කර වාර්�
 
 st.markdown("---")
 st.caption("🌱 Sustainable Agri-Tech Research Prototype v5.0 | Developed for Research Purposes")
+# AI Chatbot සෙක්ෂන් එක
+st.markdown("---")
+st.subheader("🤖 AI කෘෂිකාර්මික උපදේශක")
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
+
+if prompt := st.chat_input("වගාව ගැන අහන්න..."):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.write(prompt)
+
+    user_input = prompt.lower()
+    if "මිරිස්" in user_input:
+        response = "🌶️ මිරිස් වගාව සඳහා උපදෙස්: 1. හොඳින් හිරු එළිය ලැබෙන ස්ථානයක් තෝරාගන්න. 2. පසෙහි ජලය බැස යන ගතිය හොඳ විය යුතුයි."
+    else:
+        response = "මම තවමත් ඉගෙන ගන්නවා. මට 'මිරිස් වගාව' ගැන අහන්න, මම උදව් කරන්නම්!"
+    
+    with st.chat_message("assistant"):
+        st.write(response)
+    st.session_state.messages.append({"role": "assistant", "content": response})
