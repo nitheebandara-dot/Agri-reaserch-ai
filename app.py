@@ -259,3 +259,14 @@ if prompt := st.chat_input("වගාව ගැන අහන්න..."):
     with st.chat_message("assistant"):
         st.write(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
+    user_input = prompt.lower()
+    if "මිරිස්" in user_input:
+        response = "🌶️ මිරිස් වගාව: හොඳින් හිරු එළිය ලැබෙන පසක් තෝරාගෙන සතියකට වරක් දියර පොහොර යොදන්න."
+    elif "බටු" in user_input or "වම්බටු" in user_input:
+        response = "🍆 වම්බටු වගාව: පස හොඳින් කාබනික පොහොර මිශ්‍ර කර, පැළ සිටුවා දින 10කට වරක් වටපිටාව වල් පැලෑටි වලින් තොරව තබා ගන්න."
+    elif "ගෝවා" in user_input:
+        response = "🥬 ගෝවා වගාව: සිසිල් දේශගුණයක් ප්‍රිය කරන නිසා උඩරට කලාපයට වඩාත් සුදුසුයි. පස තෙතමනය සහිතව තබා ගන්න."
+    elif "බෝංචි" in user_input:
+        response = "🫛 බෝංචි වගාව: වැල් වර්ගයක් නම් ආධාරක යොදන්න. නයිට්‍රජන් අඩංගු පොහොර මඳක් යෙදීම සාර්ථක අස්වැන්නකට උදව් වේ."
+    else:
+        response = "මම තවමත් ඉගෙන ගන්නවා. මට 'මිරිස්', 'බටු', 'ගෝවා' හෝ 'බෝංචි' ගැන අහන්න, මම උදව් කරන්නම්!"
