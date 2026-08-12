@@ -270,3 +270,59 @@ if prompt := st.chat_input("වගාව ගැන අහන්න..."):
         response = "🫛 බෝංචි වගාව: වැල් වර්ගයක් නම් ආධාරක යොදන්න. නයිට්‍රජන් අඩංගු පොහොර මඳක් යෙදීම සාර්ථක අස්වැන්නකට උදව් වේ."
     else:
         response = "මම තවමත් ඉගෙන ගන්නවා. මට 'මිරිස්', 'බටු', 'ගෝවා' හෝ 'බෝංචි' ගැන අහන්න, මම උදව් කරන්නම්!"
+import google.generativeai as genai
+import streamlit as st
+
+# 1. Page Config & Title
+st.set_page_config(
+    page_title="AI ගොවි උපදේශක", page_icon="🌱", layout="centered"
+)
+
+st.title("🌱 AI ගොවිපළ වගා උපදේශක")
+st.write(
+    "ඔබේ ඕනෑම වගාවක් (බෝංචි, මිරිස්, තක්කාලි, බටු ආදී) පිළිබඳ ගැටලුව පහතින් යොමු කරන්න."
+)
+
+# 2. Gemini API Configuration (ඔයාගේ Key එක ඇතුළත් කර ඇත)
+API_KEY = "AQ.Ab8RN6I_VvAGyUAIVR0v163q1f4sGyAQLy8RUpLhvO-zC4-VWQ"
+genai.configure(api_key=API_KEY)
+
+# Gemini Model එක සක්‍රිය කිරීම
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+# 3. User Input Form
+with st.form("agri_form"):
+  crop_name = st.text_input(
+      "🌾 වගාවේ නම:", placeholder="උදා: බෝංචි, මිරිස්, තක්කාලි"
+  )
+  user_query = st.text_area(
+      "❓ ගැටලුව / ප්‍රශ්නය:",
+      placeholder="උදා: කොළ කහ පාට වෙනවා, පාලනය කරන්නේ කෙසේද?",
+  )
+  submit_button = st.form_submit_button("උපදෙස් ලබාගන්න 🚀")
+
+# 4. AI Response Generation
+if submit_button:
+  if crop_name and user_query:
+    with st.spinner("AI උපදේශක පිළිතුර සකසමින් පවතී..."):
+      prompt = f"""
+            ඔබ ශ්‍රී ලංකාවේ පළපුරුදු කෘෂිකාර්මික උපදේශකයෙකි. 
+            ගොවියාගේ වගාව: {crop_name}
+            ගොවියාගේ ප්‍රශ්නය: {user_query}
+            
+            කරුණාකර පහත අංශ කෙරෙහි අවධානය යොමු කරමින් පැහැදිලි, සරල සිංහලෙන් පිළිතුරු සපයන්න:
+            1. රෝගය හෝ ගැටලුව හඳුනාගැනීම සහ ඊට හේතුව
+            2. කාබනික සහ රසායනික විසඳුම් / පොහොර භාවිතය
+            3. වගාව ආරක්ෂා කර ගැනීමට අනාගතයේදී ගත යුතු පියවර
+            """
+
+      try:
+        response = model.generate_content(prompt)
+        st.success("✅ AI උපදේශකගේ පිළිතුර:")
+        st.markdown(response.text)
+      except Exception as e:
+        st.error(
+            f"දෝෂයක් සිදු විය. කරුණාකර API Key එක නිවැරදිදැයි පරීක්ෂා කරන්න: {e}"
+        )
+  else:
+    st.warning("කරුණාකර වගාවේ නම සහ ප්‍රශ්නය යන දෙකම ඇතුළත් කරන්න.")
