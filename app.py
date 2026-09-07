@@ -322,8 +322,6 @@ if submit_button:
         st.markdown(response.text)
       except Exception as e:
         st.error(
-            f"දෝෂයක් සිදු විය. කරුණාකර API Key එක නිවැරදිදැයි පරීක්ෂා කරන්න: {e}"
-        )
   else:
     st.warning("කරුණාකර වගාවේ නම සහ ප්‍රශ්නය යන දෙකම ඇතුළත් කරන්න.")<!DOCTYPE html>
 <html lang="si">
